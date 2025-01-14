@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengumpulan Tugas</title>
+    <link rel="stylesheet" href="input.css">
+</head>
+<body>
+    <header>
+        <h1>Pengumpulan Tugas</h1>
+    </header>
+
+    <main>
+        <!-- Section untuk mendownload file -->
+        <section class="download-task">
+            <h2>Unduh Template Tugas</h2>
+            <p>Unduh file template tugas untuk diisi:</p>
+            <a href="template_tugas.docx" download="Template_Tugas.docx" class="download-button">Download Template Tugas (Word)</a>
+        </section>
+
+        <!-- Form unggah tugas -->
+        <section class="upload-task">
+            <h2>Unggah Tugas</h2>
+            <form action="upload_task.php" method="post" enctype="multipart/form-data">
+                <label for="student-name">Nama:</label>
+                <input type="text" id="student-name" name="student_name" required>
+
+                <label for="task-file">File Tugas:</label>
+                <input type="file" id="task-file" name="task_file" required>
+
+                <button type="submit">Unggah</button>
+            </form>
+        </section>
+
+        <!-- Form kirim pesan -->
+        <section class="message-bar">
+            <h2>Kirim Pesan</h2>
+            <form action="send_message.php" method="post">
+                <label for="message">Pesan:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Kirim</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Pengumpulan Tugas. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
