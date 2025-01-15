@@ -7,14 +7,185 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 20px;
+            position: relative;
+        }
+
+        .navbar-brand {
+            font-size: 28px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-menu {
+            position: absolute;
+            right: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .navbar-menu a:hover {
+            text-decoration: underline;
+        }
+
+        .description {
+            background-color: #ffffff;
+            padding: 20px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .description h2 {
+            font-size: 28px;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .description p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 20px;
+            gap: 20px;
+        }
+
+        .box {
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            width: 200px;
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .box a {
+            text-decoration: none;
+            color: #4CAF50;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .message-form {
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        .message-form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .message-form input, .message-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .message-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .message-form button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px;
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        footer p {
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .navbar-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+
     <header>
-        <h1>Website Pengumpulan Tugas</h1>
+        <nav>
+            <div class="navbar-brand">Website Pengumpulan Tugas</div>
+            <div class="navbar-menu">
+                <a href="#">Beranda</a>
+                <a href="#deskripsi">Deskripsi</a>
+                <a href="#form">Kirim Pesan</a>
+                <a href="#footer">Kontak</a>
+            </div>
+        </nav>
     </header>
-    <section class="description">
-        <h2>Deskripsi Website</h2>
-        <p>Website Pengumpulan Tugas adalah platform yang memungkinkan siswa untuk mengumpulkan tugas-tugas mereka dalam berbagai mata pelajaran. Dengan tampilan yang sederhana dan mudah digunakan, website ini menyediakan kategori tugas untuk setiap mata pelajaran yang dapat diakses oleh siswa. Pengguna dapat mengirimkan pesan atau pertanyaan kepada pengelola website mengenai tugas yang diberikan. Tujuan utama website ini adalah untuk memudahkan proses pengumpulan tugas dan komunikasi antara siswa dan pengelola tugas.</p>
+
+    <section class="description" id="deskripsi">
+                <p>Website Pengumpulan Tugas adalah platform yang memungkinkan siswa untuk mengumpulkan tugas-tugas mereka dalam berbagai mata pelajaran. Dengan tampilan yang sederhana dan mudah digunakan, website ini menyediakan kategori tugas untuk setiap mata pelajaran yang dapat diakses oleh siswa. Pengguna dapat mengirimkan pesan atau pertanyaan kepada pengelola website mengenai tugas yang diberikan. Tujuan utama website ini adalah untuk memudahkan proses pengumpulan tugas dan komunikasi antara siswa dan pengelola tugas.</p>
     </section>
+
     <div class="container">
         <div class="box">
             <a href="input.html">Matematika</a>
@@ -25,6 +196,7 @@
         <div class="box">
             <a href="input.html">Kimia</a>
         </div>
+        
         <div class="box">
             <a href="input.html">Biologi</a>
         </div>
@@ -35,7 +207,8 @@
             <a href="input.html">Bahasa Inggris</a>
         </div>
     </div>
-    <div class="message-form">
+
+    <div class="message-form" id="form">
         <h2>Kirim Pesan</h2>
         <form action="#" method="post">
             <label for="name">Nama:</label>
@@ -47,7 +220,8 @@
             <button type="submit">Kirim</button>
         </form>
     </div>
-    <footer>
+
+    <footer id="footer">
         <p>&copy; 2025 Website Pengumpulan Tugas. All rights reserved.</p>
     </footer>
 
