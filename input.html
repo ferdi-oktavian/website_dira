@@ -5,83 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pengumpulan Tugas</title>
     <link rel="stylesheet" href="input.css">
-</head>
-<body>
+    <script>
+        function showPopup(message) {
+            const popup = document.createElement('div');
+            popup.textContent = message;
+            popup.style.position = 'fixed';
+            popup.style.top = '50%';
+            popup.style.left = '50%';
+            popup.style.transform = 'translate(-50%, -50%)';
+            popup.style.backgroundColor = '#4caf50';
+            popup.style.color = 'white';
+            popup.style.padding = '1rem 2rem';
+            popup.style.borderRadius = '8px';
+            popup.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.2)';
+            popup.style.zIndex = '1000';
+            document.body.appendChild(popup);
+
+            setTimeout(() => {
+                document.body.removeChild(popup);
+            }, 3000);
+        }
+
+        function handleUpload(event) {
+            event.preventDefault();
+            showPopup('Sudah Terkirim!');
+        }
+
+        function handleMessage(event) {
+            event.preventDefault();
+            showPopup('Berhasil Terkirim!');
+        }
+    </script>
     <style>
         /* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f9f9f9;
-    color: #333;
-}
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('background.jpg') no-repeat center center fixed; /* Gambar latar belakang */
+            background-size: cover; /* Agar gambar memenuhi seluruh layar */
+            color: #333;
+        }
 
-header {
-    background-color: #373c6c;
-    color: white;
-    padding: 1rem;
-    text-align: center;
-}
+        header {
+            background-color: #373c6c;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
 
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
 
-main {
-    padding: 2rem;
-    max-width: 800px;
-    margin: auto;
-}
+        main {
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
 
-section {
-    background-color: white;
-    padding: 1.5rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+        section {
+            background-color: white;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-h1, h2 {
-    color: #67698a;
-}
+        h1, h2 {
+            color: #67698a;
+        }
 
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
-}
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
 
-input[type="text"], input[type="file"], textarea {
-    width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+        input[type="text"], input[type="file"], textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-button {
-    background-color: #1c301d;
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 1rem;
-}
+        button {
+            background-color: #1c301d;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
 
-button:hover {
-    background-color: #2d462e;
-}
-
+        button:hover {
+            background-color: #2d462e;
+        }
     </style>
+</head>
+<body>
     <header>
         <h1>Pengumpulan Tugas</h1>
     </header>
@@ -97,7 +128,7 @@ button:hover {
         <!-- Form unggah tugas -->
         <section class="upload-task">
             <h2>Unggah Tugas</h2>
-            <form action="uploadtask.php" method="post" enctype="multipart/form-data">
+            <form action="uploadtask.php" method="post" enctype="multipart/form-data" onsubmit="handleUpload(event)">
                 <label for="student-name">Nama:</label>
                 <input type="text" id="student-name" name="student_name" required>
 
@@ -111,7 +142,7 @@ button:hover {
         <!-- Form kirim pesan -->
         <section class="message-bar">
             <h2>Kirim Pesan</h2>
-            <form action="send_message.php" method="post">
+            <form action="send_message.php" method="post" onsubmit="handleMessage(event)">
                 <label for="message">Pesan:</label>
                 <textarea id="message" name="message" rows="4" required></textarea>
                 <button type="submit">Kirim</button>
